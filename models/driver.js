@@ -88,22 +88,6 @@ function Driver() {
 		});
 	}
 
-	this.updateDriverCoord = function(payload, res) {
-		sql.connect(server.config, function (err) {
-			var request = new sql.Request();
-			var payload = null;
-			
-			request.execute('getDriversCoorInfo', (err, result) => {
-			    if(!err) {
-			    	payload = result[0];
-			    	res.status(200).send({status: 200, payload: payload});
-			    } else {
-			    	res.status(400).send({status: 400, message: err});
-			    }			    
-			});
-		});
-	}
-
 	this.receiveLocationLogs = function() {
 		amqp.connect(server.amqpURL, function(err, conn) {
 		  	conn.createChannel(function(err, ch) {

@@ -2,10 +2,10 @@ var sql = require('mssql');
 //2.
 function ServerConfig() {
 	this.config = {
-	    server: '89cb38b8-d521-496f-aaba-a72b003f22c3.sqlserver.sequelizer.com',
-	    database: 'db89cb38b8d521496faabaa72b003f22c3',
-	    user: 'tdgmcttqjhveiwyd',
-	    password: 'x6FyKB84fFVptdggFftH36rVjzxj27yD3um4bxLrhuyF7EttjTLoHynAMSpkdXch',
+	    server: '4e3d17d9-417e-475a-87bb-a76e004f3a56.sqlserver.sequelizer.com',
+	    database: 'db4e3d17d9417e475a87bba76e004f3a56',
+	    user: 'qbffdjcgezowtvyj',
+	    password: '8EwdtuyaHNheUBfKmSSBdnVq8xpzvLu65xNHdWUtMmMBoaBPX6PchDrUSfd5e8M5',
 	    port: 1433
 	};
 	this.amqpURL = 'amqp://imtqjgzz:LQWyhmVxKBMgV6ROObew36G07DUs6ZYZ@white-mynah-bird.rmq.cloudamqp.com/imtqjgzz';
