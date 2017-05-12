@@ -60,7 +60,7 @@ function Driver() {
 
 			request.execute('uspRegisterDriver', (err, result) => {
 			    if(!err) {
-			    	res.sendStatus(200);
+			    	res.status(200).send({status: 200});
 			    } else {
 			    	if (err.number == 2627) {
 			    		res.status(400).send({status: 400, message:"Username already exist"});
