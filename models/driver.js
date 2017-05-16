@@ -138,6 +138,22 @@ function Driver() {
 			});
 		});
 	}
+	this.getDriverInfo = function(payload, res) {
+		sql.connect(server.config, function (err) {
+			const request = new sql.Request();
+			request.input('driverID', sql.NVarChar, payload.driverID);
+
+			request.execute('uspGetDriverInfo', (err, recordsets, returnValue, affected) => {
+				if (!err) {
+					var data = recordsets[0][0];
+					delete data['password'];
+					res.status(200).send({status: 200, payload: data});
+				} else {
+					res.status(400).send({status: 400, message: "Something happened, please try again"});
+				}
+			});
+		});
+	}
 }
 
 module.exports = new Driver();
