@@ -146,7 +146,7 @@ function Driver() {
 			request.execute('uspGetDriverInfo', (err, recordsets, returnValue, affected) => {
 				if (!err) {
 					var data = recordsets[0][0];
-					delete data['password'];
+					delete data['driverPassword'];
 					res.status(200).send({status: 200, payload: data});
 				} else {
 					res.status(400).send({status: 400, message: "Something happened, please try again"});
