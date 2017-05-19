@@ -158,7 +158,6 @@ function Driver() {
 	this.updateDriverCoord = function(payload, res) {
 		sql.connect(server.config, function (err) {
 			var request = new sql.Request();
-			var payload = message;
 
 			request.input('long', sql.Decimal(9, 6), payload.longitude);
 			request.input('lat', sql.Decimal(9, 6), payload.latitude);
