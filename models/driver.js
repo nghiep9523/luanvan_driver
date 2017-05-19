@@ -154,6 +154,25 @@ function Driver() {
 			});
 		});
 	}
+
+	this.updateDriverCoord = function(payload, res) {
+		sql.connect(server.config, function (err) {
+			var request = new sql.Request();
+			var payload = message;
+
+			request.input('long', sql.Decimal(9, 6), payload.longitude);
+			request.input('lat', sql.Decimal(9, 6), payload.latitude);
+			request.input('id', sql.NVarChar, payload.driverID);
+			
+			request.execute('uspUpdateDriverCoord', (err, result) => {
+			    if(err) {
+			    	res.status(400).send({status: 400, message: err});
+			    } else {
+			    	res.status(200).send({status: 200});
+			    }		    
+			});
+		});
+	}
 }
 
 module.exports = new Driver();

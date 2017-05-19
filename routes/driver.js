@@ -17,7 +17,12 @@ router.get('/coordInfo', function(req, res) {
 router.post('/updateStatus', function(req, res) {
  	driver.updateDriverStatus(req.body, res);
 });
+
 router.post('/info', function(req, res) {
  	driver.getDriverInfo(req.body, res);
+});
+
+router.post('/updateCoord', function(req,res) {
+	driver.updateDriverCoord(req.body, res);
 });
 module.exports = router;
