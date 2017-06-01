@@ -65,7 +65,7 @@ function Driver() {
 			    	if (err.number == 2627) {
 			    		res.status(400).send({status: 400, message:"Username already exist"});
 			    	} else {
-			    		res.status(400).send({status: 400, message: "Something happened please try again"});
+			    		res.status(400).send({status: 400, message: err});
 			    	}
 			    }
 			});
@@ -77,7 +77,7 @@ function Driver() {
 			var request = new sql.Request();
 			var payload = null;
 			
-			request.execute('getDriversCoorInfo', (err, result) => {
+			request.execute('uspGetDriverCoordInfo', (err, result) => {
 			    if(!err) {
 			    	payload = result[0]
 			    	res.status(200).send({status: 200, payload: payload});
