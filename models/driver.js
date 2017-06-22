@@ -78,6 +78,7 @@ function Driver() {
 			var payload = null;
 			
 			request.execute('uspGetDriverCoordInfo', (err, result) => {
+				console.log(result)
 			    if(!err) {
 			    	payload = result[0]
 			    	res.status(200).send({status: 200, payload: payload});
@@ -89,6 +90,7 @@ function Driver() {
 	}
 
 	this.receiveLocationLogs = function() {
+		console.log('hue')
 		amqp.connect(server.amqpURL, function(err, conn) {
 		  	conn.createChannel(function(err, ch) {
 			    var ex = 'location_logs';
