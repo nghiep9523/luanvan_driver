@@ -174,15 +174,17 @@ function Driver() {
 
 			console.log(payload)
 
-			request.input('long', sql.Float, payload.longitude);
-			request.input('lat', sql.Float, payload.latitude);
+			request.input('long', sql.Decimal(9,6), payload.longitude);
+			request.input('lat', sql.Decimal(9,6), payload.latitude);
 			request.input('id', sql.NVarChar, payload.driverID);
 			
+			console.log(request);
+
 			request.execute('uspUpdateDriverCoord', (err, result) => {
-			    if(err) {
-			    	res.status(400).send({status: 400, message: err});
-			    } else {
+			    if(!err) {
 			    	res.status(200).send({status: 200});
+			    } else {
+			    	res.status(400).send({status: 400, message: "Something happened, please try again"});
 			    }		    
 			});
 		});
