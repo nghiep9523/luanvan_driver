@@ -172,13 +172,9 @@ function Driver() {
 		sql.connect(server.config, function (err) {
 			var request = new sql.Request();
 
-			console.log(payload)
-
-			request.input('long', sql.Decimal(9,6), payload.longitude);
-			request.input('lat', sql.Decimal(9,6), payload.latitude);
+			request.input('long', sql.Decimal(9,6), payload.long);
+			request.input('lat', sql.Decimal(9,6), payload.lat);
 			request.input('id', sql.NVarChar, payload.driverID);
-			
-			console.log(request);
 
 			request.execute('uspUpdateDriverCoord', (err, result) => {
 			    if(!err) {
