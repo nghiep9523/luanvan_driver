@@ -148,6 +148,7 @@ function Driver() {
 
 				request.execute('uspGetDriverInfo', (err, recordsets, returnValue, affected) => {
 					if (!err) {
+						console.log('a')
 						var data = recordsets[0][0];
 						delete data['driverPassword'];
 						res.status(200).send({status: 200, payload: data});
@@ -158,6 +159,7 @@ function Driver() {
 			} else {
 				request.execute('uspGetAllDriverInfo', (err, recordsets, returnValue, affected) => {
 					if (!err) {
+						console.log('b')
 						var data = recordsets[0];
 						res.status(200).send({status: 200, payload: data});
 					} else {
